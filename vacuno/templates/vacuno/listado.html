@@ -1,0 +1,39 @@
+{% extends 'core/basePag.html' %}
+{% block title> %}Inicio{% endblock %}
+{% block menu %}
+    <li><a href="/" data-hover="Inicio">Inicio</a></li>
+    <li><a href="/about" data-hover="Sobre nosotros">Sobre nosotros</a></li>
+    <li class="active"><a href="/" data-hover="Listado Vacuno">Listado Vacuno</a></li>
+    <li><a href="/" data-hover="Codigos">Codigos</a></li>
+    <li><a href="/" data-hover="Contactanos">Contactanos</a></li>
+    <li><a href="/admin" data-hover="ADMIN">ADMIN</a></li>
+{% endblock %}
+{% block content %}
+    <h3 class="head"><span class="glyphicon glyphicon-text-size" aria-hidden="true"></span>Listado</h3>
+    <div class="bs-docs-example">
+        <table class="table table-hover">
+			<thead>
+				<tr>
+					<th>ID</th>
+					<th>Peso</th>
+					<th>Raza</th>
+					<th>Sexo</th>
+                    <th>Fecha inscripción</th>
+                    <th>Fecha modificación</th>
+				</tr>
+			</thead>
+			<tbody>
+            {% for v in vc %}
+				<tr>
+					<td>{{ v.id }}</td>
+					<td>{{ v.peso }}</td>
+					<td>{{ v.raza }}</td>
+					<td>{{ v.sexo }}</td>
+                    <td>{{ v.created }}</td>
+					<td>{{ v.update }}</td>
+				</tr>
+            {% endfor %}
+			</tbody>
+		</table>
+    </div>
+{% endblock %}   
